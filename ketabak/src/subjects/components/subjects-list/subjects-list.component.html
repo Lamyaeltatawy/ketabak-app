@@ -3,17 +3,25 @@
         <h3>المواد</h3>
     </div>
     <div class="content">
-        <div class="card" *ngFor="let sub of subjectList">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card" *ngFor="let subject of subjectList">
+            <img [src]="subject.image" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="status">
-                <span class="badge badge-success">:الحالة</span>
-                <i></i>
-              </div>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">{{subject.name}}</h5>
+                <p class="card-text">{{subject.description}}</p>
+                <div class="status ">
+                    <h6>:الحالة</h6>
+                    <i class="m-0"
+                        [ngClass]="{'status-done': subject.status === 'مكتمل', 'status-not-done': subject.status === 'غير مكتمل'}">{{subject.status}}</i>
+                </div>
+                <a href="#" class=""> <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.2393 9.01529L3.05664 9.01529" stroke="#FF3BA6" stroke-width="1.0166"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7.63135 13.59L3.05664 9.01529L7.63135 4.44058" stroke="#FF3BA6" stroke-width="1.0166"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>اضافة تمرين
+                </a>
             </div>
-          </div>
+        </div>
     </div>
 </div>
