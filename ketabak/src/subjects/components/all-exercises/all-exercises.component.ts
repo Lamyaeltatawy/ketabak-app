@@ -12,7 +12,7 @@ import {
   styleUrls: ['./all-exercises.component.css']
 })
 export class AllExercisesComponent implements OnInit {
-
+public questionType: string='' ;
   constructor() { }
 
   ngOnInit(): void {
@@ -37,16 +37,11 @@ export class AllExercisesComponent implements OnInit {
       console.log("dragged event",event);
       if(event.container.data.length >0){
         event.container.data.forEach(element => {
-          if(element == 'اختيار من متعدد'){
-            console.log("Multiple Choice");
-          }
-          else if(element == 'اختيار فردى'){
-            console.log("Single Choice");
-          }
-          else if(element == 'نص'){
-            console.log("Text");
-          }
+          this.questionType = element;
         });
+      }
+      if(event.container.data.length ==0){
+        this.questionType = '';
       }
     }
   

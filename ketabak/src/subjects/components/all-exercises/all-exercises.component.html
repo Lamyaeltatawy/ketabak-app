@@ -10,34 +10,44 @@
             </div>
         </div>
     </div>
-    <div class="col-8">
-        <div class="example-container">
+    <div class="col-10">
+        <div class="example-container ">
 
             <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
                 class="example-list" (cdkDropListDropped)="drop($event)">
-                <div *ngIf="done.length === 0" class="example-placeholder">No items done yet</div>
+                <div *ngIf="done.length === 0" class="example-placeholder">...قم بسحب وادراج نوع السؤال هنا  </div>
 
                 <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
 
             </div>
         </div>
         <div class="forms-container">
-            <form>
+            <div class="multiple-form option" *ngIf="questionType == 'اختيار من متعدد'" >
                 <div class="mb-3">
+                    <h1>multiple</h1>
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
+              </div>
+              <div class="single-form option" *ngIf="questionType == 'اختيار فردى'">
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                    <h1>single</h1>
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                
+              </div>
+              <div class="text-form option" *ngIf="questionType == 'نص'">
+                <div class="mb-3">
+                    <h1>text</h1>
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+                
+              </div>
         </div>
     </div>
 </div>
