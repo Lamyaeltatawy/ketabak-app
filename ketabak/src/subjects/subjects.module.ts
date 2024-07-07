@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { SubjectsListComponent } from './components/subjects-list/subjects-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import {  DragDropModule } from '@angular/cdk/drag-drop';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // This is required for animations
+
 
 
 
@@ -16,7 +18,7 @@ import {  DragDropModule } from '@angular/cdk/drag-drop';
     SubjectsListComponent,
   ],
   imports: [
-    CommonModule,RouterModule,HttpClientModule,
+    CommonModule,RouterModule,HttpClientModule,BrowserAnimationsModule,DragDropModule 
   ],
   exports:[
     AllExercisesComponent,
