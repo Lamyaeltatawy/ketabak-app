@@ -1,0 +1,61 @@
+.container-fluid {
+    display: flex;
+    flex-direction: row-reverse;
+    .title{
+        a{
+            font-weight: bold;
+        }
+    }
+    .nav {
+        padding: 13px 0px 13px 0px ;
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+
+        .icons {
+            ul {
+                display: flex;
+                flex-direction: row-reverse;
+                list-style: none;
+                gap: 25px;
+                font-size: 20px;
+            }
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+
+            flex-direction: row-reverse;
+
+            .image {
+                width: 45px;
+                height: 45px;
+
+                img {
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50px;
+                }
+            }
+            .text{
+                text-align: right;
+                align-items: center;
+                margin-right: 15px;
+                h5{
+                    font-size: 16px;
+                }
+                p{
+                    font-size: 12px;
+                    margin-bottom: 0px;
+                
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    background-color: #FFD4EC;
+
+}

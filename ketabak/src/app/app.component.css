@@ -1,0 +1,15 @@
+.header-container{
+    display: flex;
+    justify-content: start;
+}
+.side-bar{
+    position: relative;
+    transform: translate(0px, -87px);    height: 100vh;
+    text-align: end;
+}
+.container-fluid{
+    flex-direction: row-reverse;
+}
+.content{
+    text-align: end;
+}
