@@ -13,3 +13,33 @@
 .content{
     text-align: end;
 }
+/* media query for small  */
+
+@media (min-width: 768px) and (max-width: 991px) {
+   
+   
+}
+
+/* media query for medium  */
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+}
+
+/* media query for large  */
+@media (min-width: 1200px) {
+    
+}
+
+/* media for mobiles */
+
+@media(max-width:767px) {
+    .side-bar{
+        display: none;
+    }
+    .header-container .head{
+        width: 100%;
+    }
+    .content{
+        width: 100%;
+    }
+}

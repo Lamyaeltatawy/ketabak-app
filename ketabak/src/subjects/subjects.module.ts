@@ -5,6 +5,7 @@ import { AllExercisesComponent } from './components/all-exercises/all-exercises.
 import { RouterModule } from '@angular/router';
 import { SubjectsListComponent } from './components/subjects-list/subjects-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import {  DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -15,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
     SubjectsListComponent,
   ],
   imports: [
-    CommonModule,RouterModule,HttpClientModule
+    CommonModule,RouterModule,HttpClientModule,
   ],
   exports:[
     AllExercisesComponent,
     AllSubjectsComponent,
-    SubjectsListComponent
+    SubjectsListComponent,
+    DragDropModule,
+
   ]
 })
 export class SubjectsModule { }

@@ -68,4 +68,13 @@
             }
         }
     }
+}@media(max-width:767px) {
+    .subject-container{
+        /* width: 100%; */
+        .content{
+            .card{
+                width: 100%;
+            }
+        }
+    }
 }

@@ -7,6 +7,8 @@ import { MainComponent } from './components/main/main.component';
 import { RouterModule } from '@angular/router';
 import { SubjectsModule } from 'src/subjects/subjects.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     RouterModule,
     SubjectsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
