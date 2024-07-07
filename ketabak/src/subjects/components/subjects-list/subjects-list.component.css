@@ -23,6 +23,7 @@
 
             img {
                 height: 165px;
+                border-radius: 10px;
             }
 
             .card-body {
