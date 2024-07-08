@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SubjectsService {
   private dataUrl = '../../assets/data/data.json';
-  private postUrl = 'http://localhost:3000/subjects';
+  // private postUrl = 'http://localhost:3000/subjects';
 
   constructor( private http:HttpClient) { }
   getAllSubjects(): Observable<any> {
@@ -15,6 +15,6 @@ export class SubjectsService {
 
   }
   addSubject(subjectData: any): Observable<any> {
-    return this.http.post<any>(this.postUrl, subjectData);
+    return this.http.post<any>(this.dataUrl, subjectData);
   }
 }
