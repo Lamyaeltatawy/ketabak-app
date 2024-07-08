@@ -13,7 +13,6 @@ export class SubjectsListComponent implements OnInit {
   ngOnInit(): void {
   this.service.getAllSubjects().subscribe(data=>{
     this.subjectList=data;
-    console.log("data",data);
   })
   }
 

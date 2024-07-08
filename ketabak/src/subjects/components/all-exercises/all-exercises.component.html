@@ -1,53 +1,237 @@
 <div class="exercises-container ">
-    <div class="drag-drop col-2">
+    <div class="drag-drop col-3">
         <div class="example-container">
 
             <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
-                class="example-list" (cdkDropListDropped)="drop($event)">
-
+                class="example-list list-options">
+                <div *ngIf="todo.length != 0" class="example-instructions">اسحب نوع السؤال </div>
                 <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
 
             </div>
         </div>
     </div>
-    <div class="col-10">
+    <div class="drop col-9">
         <div class="example-container ">
 
             <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
                 class="example-list" (cdkDropListDropped)="drop($event)">
-                <div *ngIf="done.length === 0" class="example-placeholder">...قم بسحب وادراج نوع السؤال هنا  </div>
+                <div *ngIf="done.length === 0" class="example-placeholder">...قم بسحب وادراج نوع السؤال هنا </div>
 
                 <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
 
             </div>
         </div>
         <div class="forms-container">
-            <div class="multiple-form option" *ngIf="questionType == 'اختيار من متعدد'" >
+            <div class="multiple-form option" *ngIf="questionType.includes('اختيار من متعدد')">
                 <div class="mb-3">
-                    <h1>multiple</h1>
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <h1>اختيار من متعدد </h1>
+                    <div class="content mb-0">
+                        <textarea class="form-control" placeholder="... نص السؤال " id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="actions">
+                        <div class="add-new">
+                            <button type="button" class="btn btn-primary">خيار جديد <svg width="12"
+                                    height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.868652 6.1424H11.1874" stroke="#FF3BA6" stroke-width="1.28984"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6.02734 11.3029V0.984192" stroke="#FF3BA6" stroke-width="1.28984"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="radio">
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    سهل
+                                </label>
+                            </div>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    متوسط
+                                </label>
+                            </div>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    صعب
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="option ">
+                            <input type="text" class="form-control" placeholder="الاختيار الاول " aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        تحديد كاجابة صحيحة
+                                    </label>
+                                </div>
+                        </div>
+                        <div class="option">
+                            <input type="text" class="form-control" placeholder="الاختيار الثانى " aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        تحديد كاجابة صحيحة
+                                    </label>
+                                </div>
+                        </div>
+                        
+                    </div>
+                    <div class="actions-buttons p-0">
+                        <button type="button" class="btn ms-3 ">حفظ كمسودة </button>
+                        <button type="button" class="btn ">الغاء </button>
+                    </div>
                 </div>
-              </div>
-              <div class="single-form option" *ngIf="questionType == 'اختيار فردى'">
+            </div>
+            <div class="single-form option" *ngIf="questionType .includes('اختيار فردى')">
                 <div class="mb-3">
-                    <h1>single</h1>
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <h1>اختيار فردى</h1>
+
+                    <div class="content mb-0">
+                        <textarea class="form-control" placeholder="... نص السؤال " id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="actions">
+                        <div class="add-new">
+                            <button type="button" class="btn btn-primary">خيار جديد <svg width="12"
+                                    height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.868652 6.1424H11.1874" stroke="#FF3BA6" stroke-width="1.28984"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6.02734 11.3029V0.984192" stroke="#FF3BA6" stroke-width="1.28984"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="radio">
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    سهل
+                                </label>
+                            </div>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    متوسط
+                                </label>
+                            </div>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    صعب
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="option ">
+                            <input type="text" class="form-control" placeholder="الاختيار الاول " aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        تحديد كاجابة صحيحة
+                                    </label>
+                                </div>
+                        </div>
+                        <div class="option">
+                            <input type="text" class="form-control" placeholder="الاختيار الثانى " aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        تحديد كاجابة صحيحة
+                                    </label>
+                                </div>
+                        </div>
+                        
+                    </div>
+                    <div class="actions-buttons p-0">
+                        <button type="button" class="btn ms-3 ">حفظ كمسودة </button>
+                        <button type="button" class="btn ">الغاء </button>
+                    </div>
                 </div>
-                
-              </div>
-              <div class="text-form option" *ngIf="questionType == 'نص'">
+
+            </div>
+            <div class="text-form option" *ngIf="questionType .includes('نص') ">
                 <div class="mb-3">
-                    <h1>text</h1>
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <h1>نص </h1>
+                    <div class="content mb-0">
+                        <textarea class="form-control" placeholder="... نص السؤال " id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="actions">
+                        <div class="add-new">
+                            <button type="button" class="btn btn-primary">خيار جديد <svg width="12"
+                                    height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.868652 6.1424H11.1874" stroke="#FF3BA6" stroke-width="1.28984"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6.02734 11.3029V0.984192" stroke="#FF3BA6" stroke-width="1.28984"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="radio">
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    سهل
+                                </label>
+                            </div>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    متوسط
+                                </label>
+                            </div>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    صعب
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="option ">
+                            <input type="text" class="form-control" placeholder="الاختيار الاول " aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        تحديد كاجابة صحيحة
+                                    </label>
+                                </div>
+                        </div>
+                        <div class="option">
+                            <input type="text" class="form-control" placeholder="الاختيار الثانى " aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        تحديد كاجابة صحيحة
+                                    </label>
+                                </div>
+                        </div>
+                        
+                    </div>
+                    <div class="actions-buttons p-0">
+                        <button type="button" class="btn ms-3 ">حفظ كمسودة </button>
+                        <button type="button" class="btn ">الغاء </button>
+                    </div>
                 </div>
-                
-              </div>
+
+            </div>
         </div>
     </div>
 </div>

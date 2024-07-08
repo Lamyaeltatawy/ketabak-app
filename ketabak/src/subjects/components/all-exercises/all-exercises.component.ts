@@ -12,7 +12,7 @@ import {
   styleUrls: ['./all-exercises.component.css']
 })
 export class AllExercisesComponent implements OnInit {
-public questionType: string='' ;
+public questionType: string[]=[];
   constructor() { }
 
   ngOnInit(): void {
@@ -25,8 +25,13 @@ public questionType: string='' ;
     drop(event: CdkDragDrop<string[]>) {
       
       if (event.previousContainer === event.container) {
+        console.log(" first condition",event);
+
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       } else {
+        console.log(" second condition",event);
+        if (event.container.id === "cdk-drop-list-2") 
+          return;
         transferArrayItem(
           event.previousContainer.data,
           event.container.data,
@@ -36,12 +41,11 @@ public questionType: string='' ;
       }
       console.log("dragged event",event);
       if(event.container.data.length >0){
-        event.container.data.forEach(element => {
-          this.questionType = element;
-        });
+        this.questionType=event.container.data
+
       }
       if(event.container.data.length ==0){
-        this.questionType = '';
+        this.questionType = [];
       }
     }
   
