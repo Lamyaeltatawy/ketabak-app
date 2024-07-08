@@ -6,18 +6,45 @@ import {
   
 
 } from '@angular/cdk/drag-drop';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SubjectsService } from 'src/subjects/services/subjects.service';
 @Component({
   selector: 'app-all-exercises',
   templateUrl: './all-exercises.component.html',
   styleUrls: ['./all-exercises.component.css']
 })
 export class AllExercisesComponent implements OnInit {
+  public form!: FormGroup;
 public questionType: string[]=[];
-  constructor() { }
+  constructor(private formBuilder:FormBuilder,private service:SubjectsService) { }
 
   ngOnInit(): void {
+    this.initiateForm();
+  }
+   initiateForm(){
+    this.form = this.formBuilder.group({
+      questionText: ['', Validators.required],
+      difficulty: ['', Validators.required],
+      options: this.formBuilder.array([
+        this.createOption(),
+        this.createOption()
+      ])
+    })
+   }
+   createOption(): FormGroup {
+    return this.formBuilder.group({
+      optionText: ['', Validators.required],
+      isCorrect: [false]
+    });
   }
 
+  get options(): FormArray {
+    return this.form?.get('options') as FormArray;
+  }
+
+  addOption(): void {
+    this.options.push(this.createOption());
+  }
     todo:string[] = ['اختيار من متعدد', 'اختيار فردى', 'نص'];
   
     done:string[] = [];
@@ -25,11 +52,9 @@ public questionType: string[]=[];
     drop(event: CdkDragDrop<string[]>) {
       
       if (event.previousContainer === event.container) {
-        console.log(" first condition",event);
 
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       } else {
-        console.log(" second condition",event);
         if (event.container.id === "cdk-drop-list-2") 
           return;
         transferArrayItem(
@@ -39,7 +64,6 @@ public questionType: string[]=[];
           event.currentIndex,
         );
       }
-      console.log("dragged event",event);
       if(event.container.data.length >0){
         this.questionType=event.container.data
 
@@ -49,5 +73,20 @@ public questionType: string[]=[];
       }
     }
   
-  
+    onSubmit(): void {
+        console.log("form",this.form.value);
+
+        this.form.reset()
+        
+        const formData = this.form.value;
+        const jsonString = JSON.stringify(formData);
+        console.log(jsonString);
+
+        this.service.addSubject(jsonString).subscribe((data)=>{
+          console.log("data passed");
+        },(err)=>{
+          console.log("err occured");
+        })
+      
+    }
 }

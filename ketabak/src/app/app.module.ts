@@ -9,6 +9,7 @@ import { SubjectsModule } from 'src/subjects/subjects.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HttpClientModule,
     NoopAnimationsModule,
     DragDropModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
