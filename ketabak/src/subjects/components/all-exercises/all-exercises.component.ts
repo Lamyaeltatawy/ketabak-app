@@ -3,7 +3,7 @@ import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
-  
+
 
 } from '@angular/cdk/drag-drop';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,13 +15,13 @@ import { SubjectsService } from 'src/subjects/services/subjects.service';
 })
 export class AllExercisesComponent implements OnInit {
   public form!: FormGroup;
-public questionType: string[]=[];
-  constructor(private formBuilder:FormBuilder,private service:SubjectsService) { }
+  public questionType: string[] = [];
+  constructor(private formBuilder: FormBuilder, private service: SubjectsService) { }
 
   ngOnInit(): void {
     this.initiateForm();
   }
-   initiateForm(){
+  initiateForm() {
     this.form = this.formBuilder.group({
       questionText: ['', Validators.required],
       difficulty: ['', Validators.required],
@@ -30,8 +30,8 @@ public questionType: string[]=[];
         this.createOption()
       ])
     })
-   }
-   createOption(): FormGroup {
+  }
+  createOption(): FormGroup {
     return this.formBuilder.group({
       optionText: ['', Validators.required],
       isCorrect: [false]
@@ -45,48 +45,45 @@ public questionType: string[]=[];
   addOption(): void {
     this.options.push(this.createOption());
   }
-    todo:string[] = ['اختيار من متعدد', 'اختيار فردى', 'نص'];
-  
-    done:string[] = [];
-    
-    drop(event: CdkDragDrop<string[]>) {
-      
-      if (event.previousContainer === event.container) {
+  todo: string[] = ['اختيار من متعدد', 'اختيار فردى', 'نص'];
 
-        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      } else {
-        if (event.container.id === "cdk-drop-list-2") 
-          return;
-        transferArrayItem(
-          event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex,
-        );
-      }
-      if(event.container.data.length >0){
-        this.questionType=event.container.data
+  done: string[] = [];
 
-      }
-      if(event.container.data.length ==0){
-        this.questionType = [];
-      }
+  drop(event: CdkDragDrop<string[]>) {
+
+    if (event.previousContainer === event.container) {
+
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      if (event.container.id === "cdk-drop-list-2")
+        return;
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
     }
-  
-    onSubmit(): void {
-        console.log("form",this.form.value);
+    if (event.container.data.length > 0) {
+      this.questionType = event.container.data
 
-        this.form.reset()
-        
-        const formData = this.form.value;
-        const jsonString = JSON.stringify(formData);
-        console.log(jsonString);
-
-        this.service.addSubject(jsonString).subscribe((data)=>{
-          console.log("data passed");
-        },(err)=>{
-          console.log("err occured");
-        })
-      
     }
+    if (event.container.data.length == 0) {
+      this.questionType = [];
+    }
+  }
+
+  onSubmit(): void {
+    const formData = this.form.value;
+    const jsonString = JSON.stringify(formData);
+    console.log(jsonString);
+
+    this.service.addSubject(jsonString).subscribe((data) => {
+      console.log("data passed");
+    }, (err) => {
+      console.log("err occured");
+    })
+  }
+
+
 }
