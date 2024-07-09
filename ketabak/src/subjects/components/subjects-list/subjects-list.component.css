@@ -25,7 +25,11 @@
                 height: 165px;
                 border-radius: 10px;
             }
-
+            .card-title{
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
             .card-body {
                 p {
                     color: #A8A8A8;
