@@ -227,3 +227,32 @@
     }
     
 }
+
+@media(max-width:767px) {
+    .forms-container{
+        .option{
+            .actions{
+                gap: 13px;
+
+                .add-new{
+                    button{
+                        padding: 11px 13px;
+                    }
+                }
+                .radio{
+                    gap: 5px;
+                    .form-check{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .forms-container {
+        & .option {
+            div {
+                padding: 0px;
+            }
+        }
+    }
+}
