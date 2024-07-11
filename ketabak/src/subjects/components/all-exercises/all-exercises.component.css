@@ -15,11 +15,12 @@
         margin-bottom: 8px;
 
     }
-    .exercises-container{
-        .drop{
-         .example-container{
-            width: 100%;
-         }
+
+    .exercises-container {
+        .drop {
+            .example-container {
+                width: 100%;
+            }
         }
     }
 }
@@ -34,13 +35,16 @@
     border: none;
     border: dotted 1px #FFD4EC;
     border-radius: 5px;
-    .list-options{
+
+    .list-options {
         margin-bottom: 0px;
         padding: 16px 8px 98px 8px;
         background-color: #FFE8F5;
     }
+
     .example-list {
         margin-bottom: 0px;
+
         .example-box {
             display: flex;
             justify-content: end;
@@ -82,7 +86,8 @@
     box-sizing: border-box;
     cursor: move;
     font-size: 14px;
-    &:hover{
+
+    &:hover {
         background-color: #ffffff;
         color: #FF3BA6;
     }
@@ -125,27 +130,33 @@
         div {
             padding: 12px 18px 12px 18px;
         }
-        h1{
+
+        h1 {
             font-size: 18px;
             font-weight: bold;
         }
-        .content{
+
+        .content {
             padding: 12px 0px 7.68px 0px;
-            textarea{
+
+            textarea {
                 text-align: end;
                 height: 62.5px;
 
             }
         }
-        .actions{
+
+        .actions {
             display: flex;
             flex-direction: row-reverse;
             gap: 55px;
             padding: 0px;
             margin-bottom: 9.6px;
-            .add-new{
+
+            .add-new {
                 padding: 0px;
-                button{
+
+                button {
                     background-color: #FFE8F5;
                     color: #FF3BA6;
                     font-weight: bold;
@@ -153,130 +164,182 @@
                     border: none;
                 }
             }
-            .radio{
+
+            .radio {
                 gap: 14px;
 
                 padding: 0px;
                 display: flex;
                 flex-direction: row-reverse;
-                .form-check{
+
+                .form-check {
                     font-size: 20px;
                     margin-bottom: 0px;
-                    input{
+
+                    input {
 
                         /* background-color: #FF3BA6; */
                         border-color: #b9b9b9;
                     }
-                    label{
+
+                    label {
                         padding-top: 5px;
 
                     }
                 }
-                .form-check-input:checked{
+
+                .form-check-input:checked {
                     background-color: #FF3BA6;
                 }
             }
         }
-        .options{
+
+        .options {
             padding: 0px;
-            .option{
-                .form-control{
+
+            .option {
+                .form-control {
                     width: 70%;
                     text-align: end;
                 }
+
                 padding: 0px;
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: space-between;
-                .form-check{
+
+                .form-check {
                     font-size: 14px;
 
-                        padding: 0px;
-                        input{
-                            /* background-color: #FF3BA6; */
-                            border-color: #b9b9b9;
-                            &:checked{
-                                background-color: #FF3BA6;
-                            }
+                    padding: 0px;
+
+                    input {
+                        /* background-color: #FF3BA6; */
+                        border-color: #b9b9b9;
+
+                        &:checked {
+                            background-color: #FF3BA6;
                         }
-                        
+                    }
+
                 }
             }
         }
-        .actions-buttons{
+
+        .actions-buttons {
             display: flex;
             flex-direction: row-reverse;
-            button:first-child{
+
+            button:first-child {
                 background-color: #FF3BA6;
                 color: white;
                 /* font-weight: bold; */
                 padding: 7.71px 23px;
                 font-size: 15.3px;
                 border: none;
-                
+
             }
-            button:last-child{
-                background-color: #FEEDED                ;
-                color: #F70505
-                ;
+
+            button:last-child {
+                background-color: #FEEDED;
+                color: #F70505;
                 padding: 7.71px 19.21px;
                 font-size: 15.3px;
                 border: none;
             }
         }
     }
-    
+
 }
 
 @media(max-width:767px) {
-    .forms-container{
-        form{
+    .exercises-container {
+        .drop{
+            width: 100%;
+            padding: 0px;
+        }
+
+        .list-options {
+            padding: 16px;
+        }
+
+        padding: 16px;
+        display: block;
+
+        .full-width-sm {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    .forms-container {
+        form {
             padding: 10px;
         }
-        .option{
-            h1{
+
+        .option {
+            h1 {
                 margin-bottom: 0px;
                 font-size: 17px;
 
             }
-            .actions{
+
+            .actions {
                 gap: 32px;
-                .add-new{
-                    button{
-                        padding: 11px 13px;
+
+                .add-new {
+                    button {
+                        padding:7px 10px;
+                        font-size: 14px;
+
                     }
                 }
-                .radio{
-                    display: block;
-                    gap: 5px;
-                    .form-check{
+
+                .radio {
+                    gap: 40px;
+                    align-items: center;
+
+
+                    .form-check {
                         font-size: 15px;
                     }
                 }
             }
-            .options{
-                .option{
-                    .form-control{
+
+            .options {
+                .option {
+                    align-items: baseline;
+                    display: flex;
+                    justify-content: space-between;
+                    .form-control {
                         width: 51%;
                     }
-                    .form-check{
+
+                    .form-check {
                         font-size: 14px;
-                        display: flex;
-                        flex-direction: column;
+                       
                         align-items: center;
-                        gap: 5px;
                     }
                 }
-            
+
             }
-            .content{
+
+            .content {
                 padding-top: 3px;
-                textarea{
+
+                textarea {
                     height: 38px;
                 }
             }
+            .actions-buttons{
+               button{
+                padding: 6px 16px;
+                font-size: 14px;   
+                           }            }
+               
         }
     }
+
     .forms-container {
         & .option {
             div {
